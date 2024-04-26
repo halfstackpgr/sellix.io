@@ -1,13 +1,22 @@
-from sellix.abc.generalobj import Shop
-import msgspec
-import pathlib
+from sellix.client import SellixClientX
+
+import datetime
+
+s = SellixClientX(
+    auth_key="KKCGz5LVmvbXJBbYdBVvfbwncQXCzEna9SaZFckuMttrqRpX8DRsKxEOLMnNFbCw"
+)
 
 
-class Sh(msgspec.Struct):
-    data: Shop
+import asyncio
+from enum import Enum
 
 
-with pathlib.Path("example/self.json").open("r") as f:
-    strs = f.read()
-    base = msgspec.json.decode(strs, type=Sh, strict=False)
-    shop = base.data
+async def main():
+    client = SellixClientX(
+        auth_key="KKCGz5LVmvbXJBbYdBVvfbwncQXCzEna9SaZFckuMttrqRpX8DRsKxEOLMnNFbCw"
+    )
+    shop = await client.get_shop()
+    if shop:
+        print(shop.avatar)
+
+asyncio.run(main())

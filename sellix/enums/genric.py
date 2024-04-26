@@ -13,37 +13,26 @@ class MerchantTier(Enum):
     Reference: [sellix.tier](https://docs.sellix.io/api-reference/errors#general-endpoints)
     """
 
-    STANDARD = (
-        "Standard",
-        5,
-    )
+    STANDARD = 5
     """
     Standard sellix tier allows general rate-limit of 5 requests, per 10s.
     - `STANDARD`: Represents the standard tier with a value of 5.
     """
 
-    TIER_1 = (
-        "Tier 1",
-        75,
-    )
+    TIER_1 = (75,)
     """
     Represents Tier 1 with a rate-limit of 75 requests per 10s.
     - `TIER_1`: Represents Tier 1 with a rate-limit of 75.
     """
 
-    TIER_2 = (
-        "Tier 2",
-        100,
-    )
+    TIER_2 = (100,)
+
     """
     Represents Tier 2 with a rate-limit of 100 requests per 10s.
     - `TIER_2`: Represents Tier 2 with a rate-limit of 100.
     """
 
-    TIER_3 = (
-        "Tier 3",
-        500,
-    )
+    TIER_3 = 500
     """
     Represents Tier 3 with a rate-limit of 500 requests per 10s.
     - `TIER_3`: Represents Tier 3 with a rate-limit of 500.
@@ -229,3 +218,127 @@ class LinkStep(Enum):
     """The gateway choice step"""
     EMAIL_AND_PAY_BUTTON = 3
     """The email and pay button step"""
+
+
+class APIEndpoints(Enum):
+    """
+    A class representing the available API endpoints.
+
+    ---
+    Reference: [sellix.api.reference](https://docs.sellix.io/api-reference/)
+    """
+
+    GET_SHOP = "/v1/self"
+    """
+    `GET` Shop affiliated to the API key.
+    """
+
+    GET_ORDER = "/v1/orders/{uniqid}"
+    """
+    `GET` Specifc order using `uniqid`.
+    """
+
+    GET_ORDER_LIST = "/v1/orders"
+    """
+    `GET` List of orders.
+    """
+
+    GET_CONSTUMERS = "/v1/customers/{id}"
+    """
+    `GET` Specific customer using `id`.
+    """
+
+    GET_CONSTUMERS_LIST = "/v1/customers"
+    """
+    `GET` List of customers.
+    """
+
+    GET_SUBSCRIPTION = "/v1/subscriptions/{id}"
+    """
+    `GET` Specific subscription using `id`.
+    """
+
+    GET_SUBSCRIPTION_LIST = "/v1/subscriptions"
+    """
+    `GET` List of subscriptions.
+    """
+
+    GET_BLACKLIST = "/v1/blacklists/{uniqid}"
+    """
+    `GET` Specific blacklisted entry using `uniqid`.
+    """
+
+    GET_BLACKLIST_LIST = "/v1/blacklists"
+    """
+    `GET` List of blacklisted entries.
+    """
+
+    GET_WHITELIST = "/v1/whitelists/{uniqid}"
+    """
+    `GET` Specific whitelisted entry using `uniqid`.
+    """
+
+    GET_WHITELIST_LIST = "/v1/whitelists"
+    """
+    `GET` List of whitelisted entries.
+    """
+
+    GET_PRODUCT = "/v1/products/{uniqid}"
+    """
+    `GET` Specific product using `uniqid`.
+    """
+
+    GET_PRODUCT_LIST = "/v1/products"
+    """
+    `GET` List of products.
+    """
+
+    GET_CATEGORY = "/v1/categories/{uniqid}"
+    """
+    `GET` Specific category using `uniqid`.
+    """
+
+    GET_CATEGORY_LIST = "/v1/categories"
+    """
+    `GET` List of categories.
+    """
+
+    GET_GROUP = "/v1/groups/{uniqid}"
+    """
+    `GET` Specific group using `uniqid`.
+    """
+
+    GET_GROUP_LIST = "/v1/groups"
+    """
+    `GET` List of groups.
+    """
+
+    GET_COUPON = "/v1/coupons/{uniqid}"
+    """
+    `GET` Specific coupon using `uniqid`.
+    """
+
+    GET_COUPON_LIST = "/v1/coupons"
+    """
+    `GET` List of coupons.
+    """
+
+    GET_FEEDBACK = "/v1/feedback/{uniqid}"
+    """
+    `GET` Specific feedback using `uniqid`.
+    """
+
+    GET_FEEDBACK_LIST = "/v1/feedback"
+    """
+    `GET` List of feedbacks.
+    """
+
+    GET_QUERY = "/v1/queries/{uniqid}"
+    """
+    `GET` Specific query using `uniqid`.
+    """
+
+    GET_QUERY_LIST = "/v1/queries"
+    """
+    `GET` List of queries.
+    """

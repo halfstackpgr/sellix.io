@@ -257,4 +257,3 @@ class MarketplaceVerified(Enum):
 
     VERIFIED = 1
     """The shop is a verified marketplace."""
-    

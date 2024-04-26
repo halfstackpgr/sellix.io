@@ -163,8 +163,8 @@ class DefaultSort(Enum):
 
 class ShopType(Enum):
     DEFAULT = "DEFAULT"
-    
-    
+
+
 class OrderType(Enum):
     """
     Enum representing the invoice type for orders.
@@ -237,7 +237,8 @@ class OrderSubtype(Enum):
     """
     Represents a product subtype for subscriptions.
     """
-    
+
+
 class OrderOrigin(Enum):
     """
     Enum representing how the invoice was created.
@@ -252,6 +253,7 @@ class OrderOrigin(Enum):
     """
     Represents an invoice created through the API.
     """
+
 
 class ProductType(Enum):
     """
