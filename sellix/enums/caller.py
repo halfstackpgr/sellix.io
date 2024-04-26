@@ -289,3 +289,4 @@ class ProductType(Enum):
     """
     Represents a product type for subscriptions.
     """
+

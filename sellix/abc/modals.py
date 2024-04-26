@@ -42,7 +42,7 @@ from ..enums.checkables import (
     SetupCryptocurrencies,
     MarketplaceVerified,
 )
-
+from .subtype import ProductVariant
 
 import msgspec
 import typing as t
@@ -356,4 +356,132 @@ class Shop(msgspec.Struct):
     available_currency: t.Optional[Currency] = None
     """Available currency."""
 
-class Order(msgspec.Struct): ...
+class Order(msgspec.Struct):
+    """
+    A class that represents a Sellix `Order`
+
+    ---
+    Reference: [sellix.get_self](https://docs.sellix.io/apireference/information/getself)
+    """
+    id: t.Optional[int]
+    """ID of the resource."""
+    uniqid: t.Optional[str]
+    """Unique ID of the resource, used as reference across the API."""
+
+    recurring_billing_id: str
+    payout_configuration: str
+    type: OrderType
+    subtype: OrderSubtype
+    origin: OrderOrigin
+    total: int
+    total_display: int
+    product_variants: t.List[ProductVariant]
+    exchange_rate: int
+    crypto_exchange_rate: int
+    currency: str
+    shop_id: int
+    shop_image_name: str
+    shop_image_storage: str
+    cloudflare_image_id: str
+    name: str
+    customer_email: str
+    customer_id: str
+    affliate_revenue_customer_id: str
+    paypal_email_delivery: bool
+    product_id: str
+    product_title: str
+    product_type: str
+    subscription_id: int
+    subscription_time: int
+    gateway: str
+    blockchain: str
+    paypal_apm: str
+    stripe_apm: str
+    paypal_email: str
+    paypal_order_id: str
+    paypal_payer_email: str
+    paypal_fee: int
+    paypal_subscription_id: int
+    paypal_subscription_link: int
+    lex_order_id: str
+    lex_payment_method: str
+    paydash_payment_id: str
+    virtual_payments_id: str
+    stripe_client_secret: str
+    stripe_price_id: str
+    skrill_email: str
+    skrill_sid: str
+    skrill_link: str
+    perfectmoney_id: UUID
+    binance_invoice_id: str
+    binance_qrcode: str
+    binance_checkout_url: str
+    crypto_address: str
+    crypto_amount: float
+    crypto_received: float
+    crypto_uri: str
+    crypto_confirmations_needed: int
+    crypto_scheduled_payout: bool
+    crypto_payout: bool
+    fee_billed: bool
+    bill_info: BillInfo
+    cashapp_qrcode: str
+    cashapp_note: UUID
+    cashapp_cashtag: str
+    country: str
+    location: str
+    ip: str
+    is_vpn_or_proxy: bool
+    user_agent: str
+    quantity: int
+    coupon_id: UUID
+    custom_fields: CustomFields
+    developer_invoice: bool
+    developer_title: str
+    developer_webhook: str
+    developer_return_url: str
+    status: str
+    status_details: str
+    void_details: str
+    discount: int
+    fee_percentage: int
+    fee_breakdown: FeeBreakdown
+    discount_breakdown: BillInfo
+    day_value: int
+    day: str
+    month: str
+    year: int
+    product_addons: List[Addon]
+    bundle_config: List[BundleConfig]
+    created_at: int
+    updated_at: int
+    updated_by: int
+    approved_address: ApprovedAddress
+    service_text: str
+    ip_info: IPInfo
+    webhooks: List[Webhook]
+    rewards_data: List[RewardsDatum]
+    paypal_dispute: PaypalDispute
+    product_downloads: List[ProductDownload]
+    payment_link_id: str
+    cashapp_email_configured: bool
+    license: bool
+    status_history: List[StatusHistory]
+    aml_wallets: List[AmlWallet]
+    crypto_transactions: List[CryptoTransaction]
+    product: Product
+    total_conversions: str
+    theme: str
+    dark_mode: int
+    crypto_mode: str
+    gateways_available: List[str]
+    country_regulations: str
+    available_stripe_apm: AvailableStripeApm
+    serials: List[str]
+    shop_payment_gateways_fees: List[PaymentGatewaysFee]
+    shop_paypal_credit_card: bool
+    shop_force_paypal_email_delivery: bool
+    shop_walletconnect_id: str
+    original_developer_return_url: str
+    rates_snapshot: RatesSnapshot
+    void_times: List[VoidTime]
